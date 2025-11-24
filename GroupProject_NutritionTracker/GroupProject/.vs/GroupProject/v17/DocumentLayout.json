@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\nutritioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\nutritioncontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\dish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\dish.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\meal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\meal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|c:\\users\\taylord25\\source\\repos\\groupproject\\nutritiontracker\\models\\day.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{247DD52E-8B6B-49BB-8A26-99AD6D19078E}|NutritionTracker\\NutritionTracker.csproj|solutionrelative:nutritiontracker\\models\\day.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Favorite.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Favorite.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\Favorite.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Favorite.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\Favorite.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T18:26:11.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Food.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Food.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\Food.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Food.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\Food.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T18:26:00.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Dish.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Dish.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\Dish.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Dish.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\Dish.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T18:25:49.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Meal.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Meal.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\Meal.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Meal.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\Meal.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T18:24:01.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Day.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Day.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\Day.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\Day.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\Day.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T18:23:48.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NutritionContext.cs",
+              "DocumentMoniker": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\NutritionContext.cs",
+              "RelativeDocumentMoniker": "NutritionTracker\\Models\\NutritionContext.cs",
+              "ToolTip": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\Models\\NutritionContext.cs",
+              "RelativeToolTip": "NutritionTracker\\Models\\NutritionContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T17:30:41.58Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
