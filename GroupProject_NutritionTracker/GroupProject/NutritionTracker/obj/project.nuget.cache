@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/QDUaDABVZo=",
+  "dgSpecHash": "93ENiHooIR0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
+  "projectFilePath": "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\taylord25\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\taylord25\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

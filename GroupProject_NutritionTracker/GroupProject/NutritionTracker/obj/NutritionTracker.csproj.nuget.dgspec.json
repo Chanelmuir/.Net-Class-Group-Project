@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\NutritionTracker.csproj": {}
+    "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\NutritionTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\NutritionTracker.csproj": {
+    "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\NutritionTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
+        "projectUniqueName": "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
         "projectName": "NutritionTracker",
-        "projectPath": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
+        "projectPath": "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\NutritionTracker.csproj",
         "packagesPath": "C:\\Users\\taylord25\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\taylord25\\source\\repos\\GroupProject\\NutritionTracker\\obj\\",
+        "outputPath": "C:\\Users\\taylord25\\Documents\\GitHub\\.Net-Class-Group-Project\\GroupProject_NutritionTracker\\GroupProject\\NutritionTracker\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taylord25\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,6 +51,8 @@
               "version": "[8.0.20, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.20, )"
             }
@@ -74,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
