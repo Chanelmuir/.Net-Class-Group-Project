@@ -1,0 +1,20 @@
+# Visual Studio
+/GroupProject_NutritionTracker/GroupProject/.vs
+*.user
+*.suo
+*.cache
+*.log
+
+﻿# Build results
+/GroupProject_NutritionTracker/GroupProject/bin/
+/GroupProject_NutritionTracker/GroupProject/obj/
+
+# Rider / VS Code
+/GroupProject_NutritionTracker/GroupProject/.idea/
+/GroupProject_NutritionTracker/GroupProject/.vscode/
+
+# OS junk
+/GroupProject_NutritionTracker/GroupProject/Thumbs.db
+/GroupProject_NutritionTracker/GroupProject/.DS_Store
+/GroupProject_NutritionTracker/GroupProject/CopilotIndices/
+/GroupProject_NutritionTracker/GroupProject/.vs
