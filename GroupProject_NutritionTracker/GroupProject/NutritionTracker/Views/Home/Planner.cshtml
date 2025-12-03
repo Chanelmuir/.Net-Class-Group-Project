@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Planner";
+}
+
+<h2 class="mb-4">Daily Planner</h2>
+
+<div class="mb-3">
+    <h4>Today's Date: <strong>@Model.DayDate.ToShortDateString()</strong></h4>
+</div>
+
+<a class="btn btn-success mb-3" asp-controller="Meals" asp-action="Create">Add Meal</a>
+
+@if (!Model.Meals.Any())
+{
+    <p class="text-muted">No meals planned yet for today.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>Meal</th>
+                <th>Calories</th>
+                <th>Foods</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var meal in Model.Meals)
+            {
+                <tr>
+                    <td>@meal.Name</td>
+                    <td>@meal.TotalCalories</td>
+                    <td>
+                        @foreach (var food in meal.Foods)
+                        {
+                            <span class="badge bg-primary">@food.Name</span>
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary" asp-controller="Meals" asp-action="Edit" asp-route-id="@meal.MealId">Edit</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-controller="Meals" asp-action="Delete" asp-route-id="@meal.MealId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

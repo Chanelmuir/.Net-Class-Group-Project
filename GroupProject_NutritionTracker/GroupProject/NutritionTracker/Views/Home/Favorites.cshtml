@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Favorites";
+}
+
+<h2 class="mb-4">Your Favorites</h2>
+
+@if (!Model.Favorites.Any())
+{
+    <p class="text-muted">You haven't added any favorites yet.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var fav in Model.Favorites)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@fav.Dish.Name</h5>
+                        <p>@fav.Dish.TotalCalories calories</p>
+
+                        <a class="btn btn-outline-success btn-sm"
+                           asp-controller="Dishes"
+                           asp-action="AddToMeal"
+                           asp-route-id="@fav.Dish.DishId">
+                            Add to Meal
+                        </a>
+
+                        <a class="btn btn-outline-danger btn-sm"
+                           asp-controller="Favorites"
+                           asp-action="Remove"
+                           asp-route-id="@fav.Dish.DishId">
+                            Remove
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<hr />
+
+<a class="btn btn-primary" asp-controller="Menu" asp-action="Index">Browse More Foods & Dishes</a>

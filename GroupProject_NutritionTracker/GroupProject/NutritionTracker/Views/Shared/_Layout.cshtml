@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - NutritionTracker</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NutritionTracker.styles.css" asp-append-version="true" />
 </head>
@@ -20,9 +20,9 @@
                 <nav class="navbar-collapse collapse" id="navbarSupportedContent">
                     <div class="navbar-nav me-auto">
                         <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
-                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="idkview1">idktype1</a>
-                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="idkview2">idktype2</a>
-                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="idkview3">idktype3</a>
+                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="Planner">Planner</a>
+                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="Menu">Menu</a>
+                        <a class="nav-item nav-link text-dark" asp-controller="Home" asp-action="Favorites">Favorites</a>
                     </div>
                 </nav>
             </div>
@@ -36,11 +36,11 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - Nutrition Tracker Group Project
+            &copy; 2025 - La Salle University - Group Project
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

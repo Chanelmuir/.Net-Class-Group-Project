@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2 class="mb-4">Menu</h2>
+
+<h4>Preset Dishes</h4>
+@if (!Model.Dishes.Any())
+{
+    <p class="text-muted">No dishes available.</p>
+}
+else
+{
+    <div class="row mb-4">
+        @foreach (var dish in Model.Dishes)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@dish.Name</h5>
+                        <p>@dish.TotalCalories calories</p>
+                        <a class="btn btn-primary btn-sm" asp-controller="Dishes" asp-action="Details" asp-route-id="@dish.DishId">View</a>
+                        <a class="btn btn-outline-success btn-sm" asp-controller="Dishes" asp-action="AddToMeal" asp-route-id="@dish.DishId">Add to Meal</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<hr />
+
+<h4>Foods</h4>
+@if (!Model.Foods.Any())
+{
+    <p class="text-muted">No foods available.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var food in Model.Foods)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <strong>@food.Name</strong>
+                        <p>@food.Calories calories</p>
+                        <a class="btn btn-outline-primary btn-sm" asp-controller="Foods" asp-action="AddToMeal" asp-route-id="@food.FoodId">Add to Meal</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
