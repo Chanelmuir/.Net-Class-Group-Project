@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // Add EF Core dependency injection
 builder.Services.AddDbContext<NutritionContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("NutritionContext")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("NutritionalTrackerContext")));
 
 var app = builder.Build();
 
