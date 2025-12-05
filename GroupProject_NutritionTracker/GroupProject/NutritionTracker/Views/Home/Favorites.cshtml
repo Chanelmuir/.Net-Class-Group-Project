@@ -4,7 +4,7 @@
     ViewData["Title"] = "Favorites";
 }
 
-<h2 class="mb-4">Favorites</h2>
+<h1 class="mb-4">Favorites</h1>
 
 @if (!Model.Any())
 {
@@ -18,8 +18,28 @@ else
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">@fav.Dish.Name</h5>
-                        <p>@fav.Dish.TotalCalories calories</p>
+
+                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                            @fav.Dish.Name
+
+                            <!-- Unfavorite button (filled star) -->
+                            <a class="btn btn-sm btn-warning"
+                               title="Remove from Favorites"
+                               asp-controller="Favorites"
+                               asp-action="Toggle"
+                               asp-route-id="@fav.Dish.DishId">
+                                <i class="bi bi-star-fill"></i>
+                            </a>
+                        </h5>
+
+                        <p>@fav.Dish.Foods.Sum(f => f.Calories) calories</p>
+
+                        <a class="btn btn-primary btn-sm"
+                           asp-controller="Dishes"
+                           asp-action="Details"
+                           asp-route-id="@fav.Dish.DishId">
+                            View
+                        </a>
 
                         <a class="btn btn-outline-success btn-sm"
                            asp-controller="Dishes"
@@ -28,12 +48,6 @@ else
                             Add to Planner
                         </a>
 
-                        <a class="btn btn-outline-danger btn-sm"
-                           asp-controller="Favorites"
-                           asp-action="Delete"
-                           asp-route-id="@fav.FavoriteId">
-                            Unfavorite
-                        </a>
                     </div>
                 </div>
             </div>

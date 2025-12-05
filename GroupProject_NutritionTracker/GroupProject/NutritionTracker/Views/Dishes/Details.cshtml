@@ -1,0 +1,81 @@
+﻿@model NutritionTracker.Models.Dish
+
+@{
+    ViewData["Title"] = "Details";
+    var favorites = ViewBag.FavoriteIds as HashSet<int>;
+
+    // Totals
+    var totalCalories = Model.Foods.Sum(f => f.Calories);
+    var totalProtein = Model.Foods.Sum(f => f.Protein);
+    var totalCarbs = Model.Foods.Sum(f => f.Carbohydrates);
+    var totalFat = Model.Foods.Sum(f => f.Fat);
+}
+
+<h2 class="mb-4">@Model.Name</h2>
+
+<!-- Favorite toggle -->
+<a class="btn btn-sm @(favorites.Contains(Model.DishId) ? "btn-warning" : "btn-outline-warning")"
+   asp-controller="Favorites"
+   asp-action="Toggle"
+   asp-route-id="@Model.DishId">
+    @if (favorites.Contains(Model.DishId))
+    {
+        <i class="bi bi-star-fill"></i> <span>Remove from Favorites</span>
+    }
+    else
+    {
+        <i class="bi bi-star"></i> <span>Add to Favorites</span>
+    }
+</a>
+
+
+<hr />
+
+<h4>Foods Included</h4>
+
+@if (!Model.Foods.Any())
+{
+    <p class="text-muted">No foods added to this dish yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Name</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Carbs</th>
+                <th>Fat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var food in Model.Foods)
+            {
+                <tr>
+                    <td>@food.Name</td>
+                    <td>@food.Calories</td>
+                    <td>@food.Protein</td>
+                    <td>@food.Carbohydrates</td>
+                    <td>@food.Fat</td>
+                </tr>
+            }
+
+            <!-- Totals row -->
+            <tr class="fw-bold table-secondary">
+                <td>Total:</td>
+                <td>@totalCalories</td>
+                <td>@totalProtein</td>
+                <td>@totalCarbs</td>
+                <td>@totalFat</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+<hr />
+
+<!-- Button -->
+<a class="btn btn-primary" asp-controller="Menu" asp-action="Index">
+    Back to Menu
+</a>

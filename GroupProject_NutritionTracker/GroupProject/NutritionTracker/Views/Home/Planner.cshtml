@@ -4,13 +4,9 @@
     ViewData["Title"] = "Planner";
 }
 
-<h2 class="mb-4">Daily Planner</h2>
+<h1 class="mb-4">Daily Planner</h1>
 
-<a class="btn btn-success mb-3"
-   asp-controller="Meals"
-   asp-action="AddMeal">
-    Add Meal
-</a>
+<a class="btn btn-success mb-3" asp-controller="Meals" asp-action="AddMeal">Add Meal</a>
 
 @if (!Model.Any())
 {
@@ -20,9 +16,7 @@ else
 {
     @foreach (var day in Model.OrderBy(d => d.Date))
     {
-        <h4 class="mt-4">
-            <strong>@day.Date.ToShortDateString()</strong>
-        </h4>
+        <h3 class="mt-4"><strong>@day.Date.ToShortDateString()</strong></h3>
 
         @if (!day.Meals.Any())
         {
@@ -30,11 +24,11 @@ else
         }
         else
         {
-            // Totals of each day
-            var dayCalories = day.Meals.Sum(m => m.TotalCalories);
-            var dayProtein = day.Meals.Sum(m => m.TotalProtein);
-            var dayCarbs = day.Meals.Sum(m => m.TotalCarbs);
-            var dayFat = day.Meals.Sum(m => m.TotalFat);
+            // Totals for the day using Meal's Total properties
+            double dayCalories = day.Meals.Sum(m => m.TotalCalories);
+            double dayProtein = day.Meals.Sum(m => m.TotalProtein);
+            double dayCarbs = day.Meals.Sum(m => m.TotalCarbs);
+            double dayFat = day.Meals.Sum(m => m.TotalFat);
 
             <table class="table table-bordered">
                 <thead class="table-light">
@@ -47,7 +41,6 @@ else
                         <th></th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach (var meal in day.Meals)
                     {
@@ -57,13 +50,14 @@ else
                             <td>@meal.TotalProtein</td>
                             <td>@meal.TotalCarbs</td>
                             <td>@meal.TotalFat</td>
-
                             <td>
-                                <a class="btn btn-sm btn-outline-primary"
-                                   asp-controller="Meals"
-                                   asp-action="Edit"
-                                   asp-route-id="@meal.MealId">Edit</a>
-
+                                @if (meal.DishId.HasValue)
+                                {
+                                    <a class="btn btn-sm btn-primary"
+                                       asp-controller="Dishes"
+                                       asp-action="Details"
+                                       asp-route-id="@meal.DishId">View</a>
+                                }
                                 <a class="btn btn-sm btn-outline-danger"
                                    asp-controller="Meals"
                                    asp-action="Delete"
@@ -72,7 +66,7 @@ else
                         </tr>
                     }
 
-                    <!-- Row of totals -->
+                    <!-- Totals row -->
                     <tr class="fw-bold table-secondary">
                         <td>Total:</td>
                         <td>@dayCalories</td>

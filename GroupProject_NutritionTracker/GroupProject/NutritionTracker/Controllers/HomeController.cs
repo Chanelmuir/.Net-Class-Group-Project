@@ -18,7 +18,6 @@ namespace NutritionTracker.Controllers
         {
             var today = DateTime.Today;
 
-            // Load today's day entries
             var day = context.Days
                 .Where(d => d.Date == today)
                 .Include(d => d.Meals)
@@ -26,7 +25,6 @@ namespace NutritionTracker.Controllers
                         .ThenInclude(dh => dh.Foods)
                 .FirstOrDefault();
 
-            // If no day exists yet, show blank screen
             if (day == null)
             {
                 return View(new HomeViewModel
@@ -41,12 +39,9 @@ namespace NutritionTracker.Controllers
                 });
             }
 
-            double totalCals = 0;
-            double totalProtein = 0;
-            double totalCarbs = 0;
-            double totalFat = 0;
+            double totalCals = 0, totalProtein = 0, totalCarbs = 0, totalFat = 0;
 
-            List<MealSummary> summaries = new();
+            var summaries = new List<MealSummary>();
 
             foreach (var meal in day.Meals)
             {
@@ -96,15 +91,22 @@ namespace NutritionTracker.Controllers
             return View(days);
         }
 
-        // List all items
+        // Mark dishes as favorites
         public IActionResult Menu()
         {
             var dishes = context.Dishes
                 .Include(d => d.Foods)
                 .ToList();
 
+            var favoriteIds = context.Favorites
+                .Select(f => f.DishId)
+                .ToHashSet();
+
+            ViewBag.FavoriteIds = favoriteIds;
+
             return View(dishes);
         }
+
 
         // List all favorite items
         public IActionResult Favorites()
@@ -128,7 +130,6 @@ namespace NutritionTracker.Controllers
 
             if (day != null)
             {
-                // Delete today's meals
                 context.Meals.RemoveRange(day.Meals);
                 context.SaveChanges();
             }
@@ -136,6 +137,7 @@ namespace NutritionTracker.Controllers
             return RedirectToAction("Index");
         }
 
+        // About Page
         public IActionResult About()
         {
             return View();
