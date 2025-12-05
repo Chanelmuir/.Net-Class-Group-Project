@@ -1,0 +1,48 @@
+﻿@model List<NutritionTracker.Models.Favorite>
+
+@{
+    ViewData["Title"] = "Favorites";
+}
+
+<h2 class="mb-4">Favorites</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">You haven't added any favorites yet.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var fav in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@fav.Dish.Name</h5>
+                        <p>@fav.Dish.TotalCalories calories</p>
+
+                        <a class="btn btn-outline-success btn-sm"
+                           asp-controller="Dishes"
+                           asp-action="AddMeal"
+                           asp-route-id="@fav.Dish.DishId">
+                            Add to Planner
+                        </a>
+
+                        <a class="btn btn-outline-danger btn-sm"
+                           asp-controller="Favorites"
+                           asp-action="Delete"
+                           asp-route-id="@fav.FavoriteId">
+                            Unfavorite
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<hr />
+
+<a class="btn btn-primary" asp-controller="Menu" asp-action="Index">
+    Browse More Menu Items
+</a>

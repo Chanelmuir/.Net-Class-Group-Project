@@ -1,7 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model NutritionTracker.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+
+    string circleClass = "calorie-circle";
+
+    if (Model.TotalCalories == 0)
+    {
+        circleClass += " calorie-zero";
+    }
+    else if (Model.TotalCalories >= Model.MaxCalorieIntake)
+    {
+        circleClass += " calorie-red";
+    }
+    else
+    {
+        circleClass += " calorie-green";
+    }
 }
 
-<table class="table">
+<div class="text-center mt-4">
 
-</table>
+    <!-- Controls -->
+    <div class="mb-4">
+        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="ResetDay">Reset Day</a>
+        <a class="btn btn-outline-primary" asp-controller="Home" asp-action="SetIntake">Set Max Calorie Intake</a>
+    </div>
+
+    <!-- Daily Total Calories -->
+    <div class="@circleClass mx-auto mb-4">
+        <h1 class="display-3 fw-bold">@Model.TotalCalories</h1>
+        <p class="text-muted">Calories Today</p>
+    </div>
+
+    <!-- Macros -->
+    <div class="row text-center mb-5">
+        <div class="col">
+            <h3 class="fw-bold">@Model.TotalProtein g</h3>
+            <p class="text-muted">Protein</p>
+        </div>
+        <div class="col">
+            <h3 class="fw-bold">@Model.TotalCarbs g</h3>
+            <p class="text-muted">Carbs</p>
+        </div>
+        <div class="col">
+            <h3 class="fw-bold">@Model.TotalFat g</h3>
+            <p class="text-muted">Fat</p>
+        </div>
+    </div>
+
+    <!-- Today's Meals -->
+    <h3 class="fw-semibold mb-3">Today’s Meals</h3>
+
+    @if (!Model.Meals.Any())
+    {
+        <p class="text-muted">No meals added yet.</p>
+    }
+    else
+    {
+        <ul class="list-group">
+            @foreach (var meal in Model.Meals)
+            {
+                <li class="list-group-item d-flex justify-content-between">
+                    <strong>@meal.Name</strong>
+                    <span>@meal.TotalCalories calories</span>
+                </li>
+            }
+        </ul>
+    }
+</div>

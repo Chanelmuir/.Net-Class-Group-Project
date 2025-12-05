@@ -55,7 +55,7 @@ namespace NutritionTracker.Models
                     )
                 );
 
-            // M:M — Meals ? Foods  (MealFoods link)
+            // M:M — Meals (to) Foods  (MealFoods link)
             modelBuilder.Entity<Meal>()
                 .HasMany(m => m.Foods)
                 .WithMany(f => f.Meals)

@@ -20,5 +20,11 @@
 
         // 1:M with Meal
         public ICollection<Meal> Meals { get; set; }
+
+        // Nutrition totals
+        public double TotalCalories => Foods?.Sum(f => f.Calories) ?? 0;
+        public double TotalProtein => Foods?.Sum(f => f.Protein) ?? 0;
+        public double TotalCarbs => Foods?.Sum(f => f.Carbohydrates) ?? 0;
+        public double TotalFat => Foods?.Sum(f => f.Fat) ?? 0;
     }
 }
