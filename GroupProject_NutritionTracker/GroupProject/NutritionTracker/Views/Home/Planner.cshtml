@@ -1,48 +1,88 @@
-﻿@{
+﻿@model List<NutritionTracker.Models.Day>
+
+@{
     ViewData["Title"] = "Planner";
 }
 
 <h2 class="mb-4">Daily Planner</h2>
 
-<div class="mb-3">
-    <h4>Today's Date: <strong>@Model.DayDate.ToShortDateString()</strong></h4>
-</div>
+<a class="btn btn-success mb-3"
+   asp-controller="Meals"
+   asp-action="AddMeal">
+    Add Meal
+</a>
 
-<a class="btn btn-success mb-3" asp-controller="Meals" asp-action="Create">Add Meal</a>
-
-@if (!Model.Meals.Any())
+@if (!Model.Any())
 {
-    <p class="text-muted">No meals planned yet for today.</p>
+    <p class="text-muted">No days found in the planner.</p>
 }
 else
 {
-    <table class="table table-bordered">
-        <thead class="table-light">
-            <tr>
-                <th>Meal</th>
-                <th>Calories</th>
-                <th>Foods</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var meal in Model.Meals)
-            {
-                <tr>
-                    <td>@meal.Name</td>
-                    <td>@meal.TotalCalories</td>
-                    <td>
-                        @foreach (var food in meal.Foods)
-                        {
-                            <span class="badge bg-primary">@food.Name</span>
-                        }
-                    </td>
-                    <td>
-                        <a class="btn btn-sm btn-outline-primary" asp-controller="Meals" asp-action="Edit" asp-route-id="@meal.MealId">Edit</a>
-                        <a class="btn btn-sm btn-outline-danger" asp-controller="Meals" asp-action="Delete" asp-route-id="@meal.MealId">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    @foreach (var day in Model.OrderBy(d => d.Date))
+    {
+        <h4 class="mt-4">
+            <strong>@day.Date.ToShortDateString()</strong>
+        </h4>
+
+        @if (!day.Meals.Any())
+        {
+            <p class="text-muted">No meals for this day.</p>
+        }
+        else
+        {
+            // Totals of each day
+            var dayCalories = day.Meals.Sum(m => m.TotalCalories);
+            var dayProtein = day.Meals.Sum(m => m.TotalProtein);
+            var dayCarbs = day.Meals.Sum(m => m.TotalCarbs);
+            var dayFat = day.Meals.Sum(m => m.TotalFat);
+
+            <table class="table table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th>Meals</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Carbs</th>
+                        <th>Fat</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var meal in day.Meals)
+                    {
+                        <tr>
+                            <td>@meal.Name</td>
+                            <td>@meal.TotalCalories</td>
+                            <td>@meal.TotalProtein</td>
+                            <td>@meal.TotalCarbs</td>
+                            <td>@meal.TotalFat</td>
+
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary"
+                                   asp-controller="Meals"
+                                   asp-action="Edit"
+                                   asp-route-id="@meal.MealId">Edit</a>
+
+                                <a class="btn btn-sm btn-outline-danger"
+                                   asp-controller="Meals"
+                                   asp-action="Delete"
+                                   asp-route-id="@meal.MealId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                    <!-- Row of totals -->
+                    <tr class="fw-bold table-secondary">
+                        <td>Total:</td>
+                        <td>@dayCalories</td>
+                        <td>@dayProtein</td>
+                        <td>@dayCarbs</td>
+                        <td>@dayFat</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    }
 }

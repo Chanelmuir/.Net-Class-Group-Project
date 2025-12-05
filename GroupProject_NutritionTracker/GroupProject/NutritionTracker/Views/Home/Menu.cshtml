@@ -1,26 +1,55 @@
-﻿@{
+﻿@model List<NutritionTracker.Models.Dish>
+
+@{
     ViewData["Title"] = "Menu";
 }
 
 <h2 class="mb-4">Menu</h2>
 
-<h4>Preset Dishes</h4>
-@if (!Model.Dishes.Any())
+<!-- Add Item button -->
+<a class="btn btn-success mb-3"
+   asp-controller="Dishes"
+   asp-action="AddItem">
+    Add Item
+</a>
+
+<h4>Dishes</h4>
+
+@if (!Model.Any())
 {
     <p class="text-muted">No dishes available.</p>
 }
 else
 {
     <div class="row mb-4">
-        @foreach (var dish in Model.Dishes)
+        @foreach (var dish in Model)
         {
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">@dish.Name</h5>
-                        <p>@dish.TotalCalories calories</p>
-                        <a class="btn btn-primary btn-sm" asp-controller="Dishes" asp-action="Details" asp-route-id="@dish.DishId">View</a>
-                        <a class="btn btn-outline-success btn-sm" asp-controller="Dishes" asp-action="AddToMeal" asp-route-id="@dish.DishId">Add to Meal</a>
+                        <p>@dish.Foods.Sum(f => f.Calories) calories</p>
+
+                        <a class="btn btn-primary btn-sm"
+                           asp-controller="Dishes"
+                           asp-action="Details"
+                           asp-route-id="@dish.DishId">
+                            View
+                        </a>
+
+                        <a class="btn btn-sm btn-outline-primary"
+                           asp-controller="Dishes"
+                           asp-action="Edit"
+                           asp-route-id="@dish.DishId">
+                            Edit
+                        </a>
+
+                        <a class="btn btn-sm btn-outline-danger"
+                           asp-controller="Dishes"
+                           asp-action="Delete"
+                           asp-route-id="@dish.DishId">
+                            Delete
+                        </a>
                     </div>
                 </div>
             </div>
@@ -30,22 +59,43 @@ else
 
 <hr />
 
-<h4>Foods</h4>
-@if (!Model.Foods.Any())
+<h4>Foods in These Dishes</h4>
+
+@if (!Model.SelectMany(d => d.Foods).Any())
 {
-    <p class="text-muted">No foods available.</p>
+    <p class="text-muted">No foods in the database.</p>
 }
 else
 {
     <div class="row">
-        @foreach (var food in Model.Foods)
+        @foreach (var food in Model.SelectMany(d => d.Foods).Distinct())
         {
             <div class="col-md-3 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <strong>@food.Name</strong>
                         <p>@food.Calories calories</p>
-                        <a class="btn btn-outline-primary btn-sm" asp-controller="Foods" asp-action="AddToMeal" asp-route-id="@food.FoodId">Add to Meal</a>
+
+                        <a class="btn btn-primary btn-sm"
+                           asp-controller="Foods"
+                           asp-action="Details"
+                           asp-route-id="@food.FoodId">
+                            View
+                        </a>
+
+                        <a class="btn btn-sm btn-outline-primary"
+                           asp-controller="Foods"
+                           asp-action="Edit"
+                           asp-route-id="@food.FoodId">
+                            Edit
+                        </a>
+
+                        <a class="btn btn-sm btn-outline-danger"
+                           asp-controller="Foods"
+                           asp-action="Delete"
+                           asp-route-id="@food.FoodId">
+                            Delete
+                        </a>
                     </div>
                 </div>
             </div>

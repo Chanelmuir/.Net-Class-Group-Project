@@ -1,17 +1,19 @@
-﻿@{
+﻿@model List<NutritionTracker.Models.Favorite>
+
+@{
     ViewData["Title"] = "Favorites";
 }
 
-<h2 class="mb-4">Your Favorites</h2>
+<h2 class="mb-4">Favorites</h2>
 
-@if (!Model.Favorites.Any())
+@if (!Model.Any())
 {
     <p class="text-muted">You haven't added any favorites yet.</p>
 }
 else
 {
     <div class="row">
-        @foreach (var fav in Model.Favorites)
+        @foreach (var fav in Model)
         {
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm">
@@ -21,16 +23,16 @@ else
 
                         <a class="btn btn-outline-success btn-sm"
                            asp-controller="Dishes"
-                           asp-action="AddToMeal"
+                           asp-action="AddMeal"
                            asp-route-id="@fav.Dish.DishId">
-                            Add to Meal
+                            Add to Planner
                         </a>
 
                         <a class="btn btn-outline-danger btn-sm"
                            asp-controller="Favorites"
-                           asp-action="Remove"
-                           asp-route-id="@fav.Dish.DishId">
-                            Remove
+                           asp-action="Delete"
+                           asp-route-id="@fav.FavoriteId">
+                            Unfavorite
                         </a>
                     </div>
                 </div>
@@ -41,4 +43,6 @@ else
 
 <hr />
 
-<a class="btn btn-primary" asp-controller="Menu" asp-action="Index">Browse More Foods & Dishes</a>
+<a class="btn btn-primary" asp-controller="Menu" asp-action="Index">
+    Browse More Menu Items
+</a>
